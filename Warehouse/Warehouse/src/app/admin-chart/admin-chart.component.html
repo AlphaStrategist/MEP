@@ -1,0 +1,18 @@
+<div class="admin-chart-container">
+  <h2>Product Categories vs Quantities</h2>
+
+  <!-- Dropdown for selecting the chart view -->
+  <div class="dropdown-container">
+    <label for="chartSelector">Select Chart:</label>
+    <select id="chartSelector" (change)="onCategoryChange($event)">
+      <option *ngFor="let option of chartOptions" [value]="option" [selected]="option === selectedCategory">
+        {{ option }}
+      </option>
+    </select>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <!-- Chart Canvas -->
+  <canvas #chartCanvas width="600" height="400" *ngIf="!errorMessage"></canvas>
+</div>

@@ -1,0 +1,53 @@
+/***********************************************
+ * Login Component Styles
+ ***********************************************/
+.login-container {
+  background-color: transparent;
+  margin: 2rem auto;
+  max-width: 400px;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container input.form-control,
+.login-container select.form-control,
+.login-container textarea.form-control {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #333;
+  font-size: 1rem;
+}
+
+.login-container .is-invalid {
+  border-color: red;
+}
+
+.login-container .invalid-feedback {
+  color: red;
+  font-size: 0.85rem;
+}
+
+/***********************************************
+ * Responsive Adjustments
+ ***********************************************/
+@media (max-width: 600px) {
+  .login-container {
+    width: 90%;
+    padding: 0.5rem;
+  }
+}

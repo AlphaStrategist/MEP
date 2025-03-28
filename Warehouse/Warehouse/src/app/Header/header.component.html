@@ -1,0 +1,48 @@
+<header class="header">
+  <div class="header-container">
+    <!-- Top row: Logo on the left, Authentication area on the right -->
+    <div class="top-row d-flex justify-content-between align-items-center">
+      <div class="logo">
+        <!-- Logo as a home button -->
+        <a routerLink="/" class="text-white text-decoration-none">Matogen Warehouse</a>
+      </div>
+      <div class="auth-buttons">
+        <nav class="d-flex align-items-center">
+          <ng-container *ngIf="!authService.isLoggedIn(); else loggedInAuth">
+            <a routerLink="/login" class="btn btn-outline-light btn-sm me-2">Login</a>
+            <a routerLink="/register" class="btn btn-outline-light btn-sm me-2">Register</a>
+          </ng-container>
+          <ng-template #loggedInAuth>
+            <!-- Username in bold, then Profile and Logout buttons -->
+            <span class="username me-2 fw-bold text-white">{{ authService.getUserName() }}</span>
+            <a routerLink="/profile" class="btn btn-outline-light btn-sm me-2">Profile</a>
+            <button (click)="onLogout()" class="btn btn-outline-light btn-sm me-2">Logout</button>
+          </ng-template>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs Row -->
+    <div class="tabs-row mt-2">
+      <ul class="nav">
+        <!-- Home tab is always visible -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <!-- Additional tabs are visible only if logged in -->
+        <ng-container *ngIf="authService.isLoggedIn()">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products-list" routerLinkActive="active">Products List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products" routerLinkActive="active">Products Add</a>
+          </li>
+          <!-- Admin tab only for admins -->
+          <li class="nav-item" *ngIf="authService.isAdmin()">
+            <a class="nav-link" routerLink="/admin-chart" routerLinkActive="active">Admin</a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</header>

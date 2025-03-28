@@ -1,0 +1,62 @@
+<div class="products-container">
+  <h2>Add Product</h2>
+
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <div class="alert alert-success" *ngIf="successMessage">{{ successMessage }}</div>
+
+  <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+    <!-- Product Name -->
+    <div class="mb-3">
+      <label for="productName" class="form-label">Product Name</label>
+      <input id="productName"
+             type="text"
+             class="form-control"
+             formControlName="productName"
+             [class.is-invalid]="addProductForm.get('productName')?.invalid && (addProductForm.get('productName')?.touched || addProductForm.get('productName')?.dirty)" />
+      <div class="invalid-feedback" *ngIf="addProductForm.get('productName')?.errors?.['required']">
+        Product name is required.
+      </div>
+    </div>
+
+    <!-- Category -->
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select id="category"
+              class="form-select"
+              formControlName="category"
+              [class.is-invalid]="addProductForm.get('category')?.invalid && (addProductForm.get('category')?.touched || addProductForm.get('category')?.dirty)">
+        <option value="" disabled>Select a category</option>
+        <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+      </select>
+      <div class="invalid-feedback" *ngIf="addProductForm.get('category')?.errors?.['required']">
+        Category is required.
+      </div>
+    </div>
+
+    <!-- Quantity -->
+    <div class="mb-3">
+      <label for="quantity" class="form-label">Quantity</label>
+      <input id="quantity"
+             type="number"
+             class="form-control"
+             formControlName="quantity"
+             [class.is-invalid]="addProductForm.get('quantity')?.invalid && (addProductForm.get('quantity')?.touched || addProductForm.get('quantity')?.dirty)" />
+      <div class="invalid-feedback" *ngIf="addProductForm.get('quantity')?.errors?.['required']">
+        Quantity is required.
+      </div>
+      <div class="invalid-feedback" *ngIf="addProductForm.get('quantity')?.errors?.['min']">
+        Minimum quantity is 1.
+      </div>
+      <div class="invalid-feedback" *ngIf="addProductForm.get('quantity')?.errors?.['max']">
+        Maximum quantity is 100.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit"
+            class="btn btn-custom-red btn-sm"
+            [disabled]="addProductForm.invalid || isSubmitting">
+      {{ isSubmitting ? 'Adding...' : 'Add Product' }}
+    </button>
+  </form>
+</div>

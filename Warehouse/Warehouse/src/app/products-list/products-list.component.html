@@ -1,0 +1,35 @@
+<div class="products-list-container">
+  <h2>All Products</h2>
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <table class="table table-bordered" *ngIf="products.length > 0">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Created On</th>
+        <th>Updated On</th>
+        <th>Creator</th>
+        <th *ngIf="isAdmin">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.productName }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.createdOn }}</td>
+        <td>{{ product.updatedOn }}</td>
+        <td>{{ product.creator }}</td>
+        <td *ngIf="isAdmin">
+          <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="products.length === 0">
+    No products found.
+  </div>
+</div>

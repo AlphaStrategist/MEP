@@ -1,0 +1,36 @@
+/***********************************************
+ * Home Component Styles
+ ***********************************************/
+.home-container {
+  background-color: transparent;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.home-container h1,
+.home-container h2,
+.home-container h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.home-content {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.card {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 1rem;
+  }
+}

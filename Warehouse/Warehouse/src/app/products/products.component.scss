@@ -1,0 +1,61 @@
+/***********************************************
+ * Products Component Styles
+ ***********************************************/
+.products-container {
+  width: 70%;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.products-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.products-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.products-container .mb-3 {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.products-container input.form-control,
+.products-container select.form-control,
+.products-container textarea.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.products-container .is-invalid {
+  border-color: red;
+}
+
+.products-container .invalid-feedback {
+  color: red;
+  font-size: 0.85rem;
+}
+
+/***********************************************
+* Responsive Adjustments
+***********************************************/
+@media (max-width: 768px) {
+  .products-container {
+      width: 90%;
+      padding: 0.5rem;
+  }
+}

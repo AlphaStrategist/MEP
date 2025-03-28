@@ -1,0 +1,22 @@
+/***********************************************
+ * App Component Styles
+ ***********************************************/
+:host {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  color: inherit;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: transparent;
+}
+
+.main-content {
+  padding: 1rem;
+  background-color: transparent;
+}

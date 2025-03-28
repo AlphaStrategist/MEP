@@ -1,0 +1,26 @@
+/***********************************************
+ * Footer Component Styles
+ ***********************************************/
+
+.footer-section {
+  text-align: center;
+  padding: 1rem;
+  background-color: transparent;
+}
+
+.footer-separator {
+  width: 80%;
+  margin: 0 auto;
+  border: 0;
+  border-top: 2px solid #ccc;
+}
+
+.footer-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
